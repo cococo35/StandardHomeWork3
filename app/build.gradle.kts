@@ -7,6 +7,10 @@ android {
     namespace = "com.android.standardhomework3"
     compileSdk = 34
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.android.standardhomework3"
         minSdk = 31
