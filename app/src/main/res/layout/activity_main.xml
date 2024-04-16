@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardview_main_back"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        app:cardCornerRadius="40dp"
+        app:cardBackgroundColor="@color/blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="40dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/arrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tx_main_name"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:text="Select a Card"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"/>
+    
+    <TextView
+        android:id="@+id/tx_main_intro"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="Avaliable Balance"
+        android:textColor="@color/gray"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="@id/cardview_main_back"
+        app:layout_constraintTop_toBottomOf="@id/cardview_main_back"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:id="@+id/tx_main_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$2,85,856,20"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:textColor="@color/blue"
+        app:layout_constraintStart_toStartOf="@id/tx_main_intro"
+        app:layout_constraintTop_toBottomOf="@id/tx_main_intro" />
+    
+    <TextView
+        android:id="@+id/tx_main_intro2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Please, select a card you are willing to do the money transfer with or add a new card using the plus button below."
+        android:textSize="15dp"
+        android:textColor="@color/gray"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tx_main_price"
+        app:layout_constraintStart_toStartOf="@id/tx_main_price" />
+
+    <TextView
+        android:id="@+id/tx_main_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select a Card"
+        android:gravity="center"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tx_main_intro2"
+        app:layout_constraintStart_toStartOf="@id/tx_main_intro2"
+        android:layout_marginTop="40dp"/>
+
+    <ImageButton
+        android:id="@+id/btn_main_plus"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/button"
+        app:layout_constraintStart_toEndOf="@id/tx_main_select"
+        app:layout_constraintTop_toTopOf="@id/tx_main_select"
+        app:layout_constraintBottom_toBottomOf="@id/tx_main_select"
+        android:layout_marginStart="210dp" />
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="340dp"
+        android:padding="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
