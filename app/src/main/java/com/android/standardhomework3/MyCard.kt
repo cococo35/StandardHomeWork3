@@ -1,7 +1,14 @@
 package com.android.standardhomework3
 
-data class MyCard1(override val name: String, override val number: String, override val expiration: String, override val price: String) : CardData
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-data class MyCard2(override val name: String, override val number: String, override val expiration: String, override val price: String) : CardData
+@Parcelize
+data class MyCard(
 
-data class MyCard3(override val name: String, override val number: String, override val expiration: String, override val price: String) : CardData
+    val name: String,
+    val number: String,
+    val expiration: String,
+    val price: String
+
+) : Parcelable

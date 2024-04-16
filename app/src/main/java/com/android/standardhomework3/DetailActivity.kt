@@ -12,9 +12,11 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.txDetailName.text = intent.getStringExtra("_name")
-        binding.txDetailNumber.text = intent.getStringExtra("_number")
-        binding.txDetailExpiration.text = intent.getStringExtra("_expiration")
-        binding.txDetailPrice.text = intent.getStringExtra("_price")
+        val data = intent.getParcelableExtra<MyCard>("Card_Key")
+        binding.txDetailName.text = data?.name
+        binding.txDetailNumber.text = data?.number
+        binding.txDetailExpiration.text = data?.expiration
+        binding.txDetailPrice.text = data?.price
+
     }
 }

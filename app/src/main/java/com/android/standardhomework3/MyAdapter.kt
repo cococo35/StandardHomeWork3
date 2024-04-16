@@ -8,11 +8,11 @@ import com.android.standardhomework3.databinding.Card1RecyclerviewBinding
 import com.android.standardhomework3.databinding.Card2RecyclerviewBinding
 import com.android.standardhomework3.databinding.Card3RecyclerviewBinding
 
-class MultiViewTypeAdapter(val dataList: MutableList<CardData>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MultiViewTypeAdapter(private val dataList: MutableList<MyCard>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object {
-        private val CARD1 = 0
-        private val CARD2 = 1
-        private val CARD3 = 2
+        private const val CARD1 = 0
+        private const val CARD2 = 1
+        private const val CARD3 = 2
     }
 
     interface ItemClick {
@@ -21,10 +21,10 @@ class MultiViewTypeAdapter(val dataList: MutableList<CardData>): RecyclerView.Ad
     var itemClick: ItemClick? = null
 
     override fun getItemViewType(position: Int): Int {
-        return when(dataList[position]) {
-            is MyCard1 -> CARD1
-            is MyCard2 -> CARD2
-            is MyCard3 -> CARD3
+        return when(position) {
+            0 -> CARD1
+            1 -> CARD2
+            2 -> CARD3
             else -> throw IllegalArgumentException("nothing")
         }
     }
@@ -67,6 +67,7 @@ class MultiViewTypeAdapter(val dataList: MutableList<CardData>): RecyclerView.Ad
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+
         holder.itemView.setOnClickListener {
             itemClick?.onClick(it, position)
         }
@@ -94,7 +95,7 @@ class MultiViewTypeAdapter(val dataList: MutableList<CardData>): RecyclerView.Ad
     }
 
 
-    inner class Card1Holder(val binding: Card1RecyclerviewBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class Card1Holder(private val binding: Card1RecyclerviewBinding) : RecyclerView.ViewHolder(binding.root) {
         val name = binding.txCardName
         val number = binding.txCardNumber
         val expiration = binding.txCardExpiration

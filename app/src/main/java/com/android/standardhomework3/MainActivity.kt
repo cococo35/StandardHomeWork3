@@ -15,30 +15,26 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val dataList = init()
+        val dataList = dataList()
 
         val adapter = MultiViewTypeAdapter(dataList)
         binding.mainRecyclerview.adapter = adapter
         binding.mainRecyclerview.layoutManager = LinearLayoutManager(this)
-
         adapter.itemClick = object : MultiViewTypeAdapter.ItemClick {
             override fun onClick(view: View, position: Int) {
+                val data = MyCard(
+                    dataList[position].name,
+                    dataList[position].number,
+                    dataList[position].expiration,
+                    dataList[position].price
+                )
+                val argument = Bundle()
+                argument.putParcelable("Card_Key", data)
                 val intent = Intent(this@MainActivity, DetailActivity::class.java)
-                intent.putExtra("_name", dataList[position].name)
-                intent.putExtra("_number", dataList[position].number)
-                intent.putExtra("_expiration", dataList[position].expiration)
-                intent.putExtra("_price", dataList[position].price)
+                intent.putExtras(argument)
                 startActivity(intent)
             }
         }
-    }
 
-    private fun init(): MutableList<CardData> {
-        val dataList = mutableListOf<CardData>()
-        val decimal = DecimalFormat("$#,###.00")
-        dataList.add(MyCard1("Anderson", "2423 3581 9503 2412", "21 / 24", decimal.format(3100.30)))
-        dataList.add(MyCard2("Anderson", "2423 3581 9503 2412", "21 / 24", decimal.format(3100.30)))
-        dataList.add(MyCard3("Anderson", "2423 3581 9503 2412", "21 / 24", decimal.format(3100.30)))
-        return dataList
     }
 }
