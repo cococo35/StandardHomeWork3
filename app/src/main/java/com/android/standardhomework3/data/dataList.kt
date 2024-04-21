@@ -1,6 +1,4 @@
-package com.android.standardhomework3
-
-import android.icu.text.DecimalFormat
+package com.android.standardhomework3.data
 
 fun dataList() : MutableList<MyCard> {
     val decimal = java.text.DecimalFormat("$#,###.00")

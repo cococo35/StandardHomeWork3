@@ -1,8 +1,8 @@
-package com.android.standardhomework3
+package com.android.standardhomework3.presentation
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.android.standardhomework3.data.MyCard
 import com.android.standardhomework3.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
