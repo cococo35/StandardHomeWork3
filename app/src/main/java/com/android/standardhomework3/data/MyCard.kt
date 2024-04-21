@@ -1,4 +1,4 @@
-package com.android.standardhomework3
+package com.android.standardhomework3.data
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

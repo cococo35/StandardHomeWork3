@@ -1,20 +1,23 @@
-package com.android.standardhomework3
+package com.android.standardhomework3.presentation
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.android.standardhomework3.data.MyCard
+import com.android.standardhomework3.data.dataList
 import com.android.standardhomework3.databinding.Card1RecyclerviewBinding
 import com.android.standardhomework3.databinding.Card2RecyclerviewBinding
 import com.android.standardhomework3.databinding.Card3RecyclerviewBinding
 
-class MultiViewTypeAdapter(private val dataList: MutableList<MyCard>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MultiViewTypeAdapter(private val onClick: (MyCard) -> Unit): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object {
         private const val CARD1 = 0
         private const val CARD2 = 1
         private const val CARD3 = 2
     }
 
+    var dataList = dataList()
     interface ItemClick {
         fun onClick(view: View, position: Int)
     }
@@ -78,36 +81,45 @@ class MultiViewTypeAdapter(private val dataList: MutableList<MyCard>): RecyclerV
                 holder.number.text = dataList[position].number
                 holder.expiration.text = dataList[position].expiration
                 holder.price.text = dataList[position].price
+                holder.itemView.setOnClickListener {
+                    onClick(dataList[position])
+                }
             }
             is Card2Holder -> {
                 holder.name.text = dataList[position].name
                 holder.number.text = dataList[position].number
                 holder.expiration.text = dataList[position].expiration
                 holder.price.text = dataList[position].price
+                holder.itemView.setOnClickListener {
+                    onClick(dataList[position])
+                }
             }
             is Card3Holder -> {
                 holder.name.text = dataList[position].name
                 holder.number.text = dataList[position].number
                 holder.expiration.text = dataList[position].expiration
                 holder.price.text = dataList[position].price
+                holder.itemView.setOnClickListener {
+                    onClick(dataList[position])
+                }
             }
         }
     }
 
 
-    inner class Card1Holder(private val binding: Card1RecyclerviewBinding) : RecyclerView.ViewHolder(binding.root) {
+    class Card1Holder(private val binding: Card1RecyclerviewBinding) : RecyclerView.ViewHolder(binding.root) {
         val name = binding.txCardName
         val number = binding.txCardNumber
         val expiration = binding.txCardExpiration
         val price = binding.txCardPrice
     }
-    inner class Card2Holder(val binding: Card2RecyclerviewBinding) : RecyclerView.ViewHolder(binding.root) {
+    class Card2Holder(val binding: Card2RecyclerviewBinding) : RecyclerView.ViewHolder(binding.root) {
         val name = binding.txCardName
         val number = binding.txCardNumber
         val expiration = binding.txCardExpiration
         val price = binding.txCardPrice
     }
-    inner class Card3Holder(val binding: Card3RecyclerviewBinding) : RecyclerView.ViewHolder(binding.root) {
+    class Card3Holder(val binding: Card3RecyclerviewBinding) : RecyclerView.ViewHolder(binding.root) {
         val name = binding.txCardName
         val number = binding.txCardNumber
         val expiration = binding.txCardExpiration
