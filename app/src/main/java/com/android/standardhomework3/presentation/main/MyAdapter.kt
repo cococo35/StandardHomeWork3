@@ -1,18 +1,19 @@
-package com.android.standardhomework3.presentation
+package com.android.standardhomework3.presentation.main
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.android.standardhomework3.data.MyCard
-import com.android.standardhomework3.data.dataList
+import com.android.standardhomework3.data.database.dataList
 import com.android.standardhomework3.databinding.Card1RecyclerviewBinding
 import com.android.standardhomework3.databinding.Card2RecyclerviewBinding
 import com.android.standardhomework3.databinding.Card3RecyclerviewBinding
 import com.android.standardhomework3.databinding.UnknownRecyclerviewBinding
+import com.android.standardhomework3.presentation.model.MyCardModel
 
-class MultiViewTypeAdapter(private val onClick: (MyCard) -> Unit): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MultiViewTypeAdapter(private val onClick: (MyCardModel) -> Unit): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    var dataList = dataList()
+    var dataList = listOf<MyCardModel>()
 
     override fun getItemViewType(position: Int): Int {
         return dataList[position].viewType.viewType
@@ -41,6 +42,7 @@ class MultiViewTypeAdapter(private val onClick: (MyCard) -> Unit): RecyclerView.
     }
 
     override fun getItemCount(): Int {
+//        Log.d("size", dataList.size.toString())
         return dataList.size
     }
 
@@ -74,7 +76,7 @@ class MultiViewTypeAdapter(private val onClick: (MyCard) -> Unit): RecyclerView.
 
 
     class Card1Holder(private val binding: Card1RecyclerviewBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(card: MyCard) {
+        fun bind(card: MyCardModel) {
             binding.apply {
                 txCardName.text = card.name
                 txCardNumber.text = card.number
@@ -84,7 +86,7 @@ class MultiViewTypeAdapter(private val onClick: (MyCard) -> Unit): RecyclerView.
         }
     }
     class Card2Holder(private val binding: Card2RecyclerviewBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(card: MyCard) {
+        fun bind(card: MyCardModel) {
             binding.apply {
                 txCardName.text = card.name
                 txCardNumber.text = card.number
@@ -94,7 +96,7 @@ class MultiViewTypeAdapter(private val onClick: (MyCard) -> Unit): RecyclerView.
         }
     }
     class Card3Holder(private val binding: Card3RecyclerviewBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(card: MyCard) {
+        fun bind(card: MyCardModel) {
             binding.apply {
                 txCardName.text = card.name
                 txCardNumber.text = card.number
