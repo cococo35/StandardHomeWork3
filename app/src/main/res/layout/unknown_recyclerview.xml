@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="330dp"
+    android:layout_height="205dp"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="330dp"
+        android:layout_height="190dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardBackgroundColor="@color/black"
+        android:elevation="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tx_card_name_unknown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="_unknown"
+                android:textSize="12dp"
+                android:textColor="@color/white"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tx_card_number_unknown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/tx_card_name_unknown"
+                app:layout_constraintTop_toBottomOf="@id/tx_card_name_unknown"
+                android:text="9999  9999  9999  9999"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:id="@+id/tx_card_balance_unknown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="_unknown"
+                android:textSize="12dp"
+                android:textColor="@color/lightgray"
+                app:layout_constraintStart_toStartOf="@id/tx_card_number_unknown"
+                app:layout_constraintTop_toBottomOf="@id/tx_card_number_unknown"
+                android:layout_marginTop="65dp" />
+
+            <TextView
+                android:id="@+id/tx_card_price_unknown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$9,999.99"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@id/tx_card_balance_unknown"
+                app:layout_constraintTop_toBottomOf="@id/tx_card_balance_unknown"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tx_card_debit_unknown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/tx_card_name_unknown"
+                app:layout_constraintTop_toTopOf="@id/tx_card_name_unknown"
+                app:layout_constraintBottom_toBottomOf="@id/tx_card_name_unknown"
+                android:text="_unknown"
+                android:textSize="12dp"
+                android:textColor="@color/white"
+                android:layout_marginStart="170dp" />
+
+            <TextView
+                android:id="@+id/tx_card_expiration_unknown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/tx_card_debit_unknown"
+                app:layout_constraintTop_toBottomOf="@id/tx_card_debit_unknown"
+                android:textColor="@color/white"
+                android:text="99 / 99"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:id="@+id/tx_card_visa_unknown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tx_card_expiration_unknown"
+                app:layout_constraintEnd_toEndOf="@id/tx_card_expiration_unknown"
+                android:layout_marginTop="92dp"
+                android:text="_unknown"
+                android:textColor="@color/white" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
