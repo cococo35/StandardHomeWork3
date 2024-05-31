@@ -51,21 +51,24 @@ class MultiViewTypeAdapter(private val onClick: (MyCardModel) -> Unit): Recycler
         val currentItem = dataList[position]
         when(holder) {
             is Card1Holder -> {
-                holder.bind(currentItem)
+                val card1Holder = holder as Card1Holder
+                card1Holder.bind(currentItem)
 
                 holder.itemView.setOnClickListener {
                     onClick(currentItem)
                 }
             }
             is Card2Holder -> {
-                holder.bind(currentItem)
+                val card2Holder = holder as Card2Holder
+                card2Holder.bind(currentItem)
 
                 holder.itemView.setOnClickListener {
                     onClick(currentItem)
                 }
             }
             is Card3Holder -> {
-                holder.bind(currentItem)
+                val card3Holder = holder as Card3Holder
+                card3Holder.bind(currentItem)
 
                 holder.itemView.setOnClickListener {
                     onClick(currentItem)

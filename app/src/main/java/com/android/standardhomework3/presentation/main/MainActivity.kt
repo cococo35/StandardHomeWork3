@@ -12,8 +12,8 @@ import com.android.standardhomework3.presentation.model.MyCardModel
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var dataList : List<MyCardModel>
-    private val cardViewModel by viewModels<CardViewModel> { CardViewModelFactory() }
-    private val adapter: MultiViewTypeAdapter by lazy {
+    private val cardViewModel by viewModels<MainViewModel> { MainViewModelFactory() }
+    private val multiViewAdapter: MultiViewTypeAdapter by lazy {
         MultiViewTypeAdapter{ card -> adapterOnClick(card) }
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,10 +44,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        adapter.dataList = dataList
+        multiViewAdapter.dataList = dataList
 
         with(binding.mainRecyclerview) {
-            adapter = adapter
+            adapter = multiViewAdapter
             layoutManager = LinearLayoutManager(this@MainActivity)
         }
     }

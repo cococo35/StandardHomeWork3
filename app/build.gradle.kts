@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("kotlin-parcelize")
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -41,14 +43,27 @@ android {
 }
 
 dependencies {
-    val activity_version = "1.9.0"
+    // retrofit
+    implementation(libs.bundles.retrofit)
+
+    //coil
+    implementation(libs.coil)
+
+    //hilt
+    implementation(libs.hilt)
+    ksp(libs.hilt.compiler)
+
+    //room
+    implementation(libs.room.runtime)
+    implementation(libs.room.paging)
+    ksp(libs.room.compiler)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
-    implementation("androidx.activity:activity-ktx:$activity_version")
-    implementation("androidx.activity:activity:$activity_version")
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
